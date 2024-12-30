@@ -23,8 +23,18 @@ if not plugin_path then
   return {}
 end
 
--- プラグインの読み込み
+-- 現在のディレクトリに GTAGS ファイルが存在する場合に gtags --single-update を実行
+vim.api.nvim_create_autocmd({"BufWritePost", "BufAdd", "BufDelete"}, {
+  pattern = "*",
+  callback = function()
+    local current_dir = vim.fn.getcwd() -- 現在の作業ディレクトリ
+    if vim.fn.filereadable(current_dir .. '/GTAGS') == 1 then
+      vim.cmd("silent !gtags --single-update " .. vim.fn.expand("<afile>:p"))
+    end
+  end,
+})
 
+-- プラグインの読み込み
 return {
   dir = plugin_path,
   config = function()
