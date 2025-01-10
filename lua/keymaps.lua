@@ -27,3 +27,4 @@ vim.keymap.set("n", "gr", function()
   vim.cmd("Gtags -r " .. word)
 end, { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap("n", "euc", ":e ++enc=auc-jp<CR>", { noremap = true, silent = true })
