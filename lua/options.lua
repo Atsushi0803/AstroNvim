@@ -1,4 +1,16 @@
-vim.opt.clipboard = "unnamedplus"
+vim.g.clipboard = {
+  name = "xclip",
+  copy = {
+    ["+"] = "xclip -selection clipboard",
+    ["*"] = "xclip -selection clipboard",
+  },
+  paste = {
+    ["+"] = "xclip -selection clipboard -o",
+    ["*"] = "xclip -selection clipboard -o",
+  },
+  cache_enabled = 1,
+}
+
 vim.opt.relativenumber = false
 vim.opt.wildmode = {"list", "longest"}
 vim.opt.wildmenu = true
