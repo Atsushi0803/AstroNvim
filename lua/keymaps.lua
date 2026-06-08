@@ -9,6 +9,10 @@ local function smart_home()
   vim.api.nvim_win_set_cursor(0, (m ~= nil and (col == 0 or m:len() < col)) and { row, m:len() } or { row, 0 })
 end
 
+vim.api.nvim_set_keymap('n', '<C-q>', '<C-v>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-q>', '<C-v>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-q>', '<C-v>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<Home>', '', { callback = smart_home })
 vim.api.nvim_set_keymap('i', '<Home>', '', { callback = smart_home })
 vim.api.nvim_set_keymap('v', '<Home>', '', { callback = smart_home })
